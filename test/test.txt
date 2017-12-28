@@ -1,0 +1,3 @@
+webpack: wait until bundle finished: /
+
+webpack: wait until bundle finished: /assets/app.js
