@@ -2,7 +2,7 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {withRouter} from 'react-router-dom';
+//import {withRouter} from 'react-router-dom';
 
 import Header from '../../components/Header'
 import CurrentCity from '../../components/CurrentCity'

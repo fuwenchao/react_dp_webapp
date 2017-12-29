@@ -13,7 +13,7 @@ class HomeAd extends React.Component{
                 <h2>超值特惠</h2>
                 <div className="ad-container clear-fix">
                     {this.props.data.map((item, index) => {
-                        console.log("item---img-->"+item.img)
+                        console.log('item---img-->'+item.img)
                         return <div key={index} className="ad-item float-left">
                             <a href={item.link} target="_blank">
                                 <img src={item.img} alt={item.title}/>

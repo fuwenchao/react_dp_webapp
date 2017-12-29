@@ -16,10 +16,10 @@ class Login extends React.Component {
             <div id="login-container">
                 <div className="input-container phone-container">
                     <i className="icon-tablet"></i>
-                    <input 
-                        type="text" 
-                        placeholder="输入手机号" 
-                        onChange={this.changeHandle.bind(this)} 
+                    <input
+                        type="text"
+                        placeholder="输入手机号"
+                        onChange={this.changeHandle.bind(this)}
                         value={this.state.username}
                     />
                 </div>

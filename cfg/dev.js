@@ -8,6 +8,8 @@ let defaultSettings = require('./defaults');
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+
 let config = Object.assign({}, baseConfig, {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
@@ -21,6 +23,14 @@ let config = Object.assign({}, baseConfig, {
     new webpack.NoErrorsPlugin(),
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
+    }),
+    // 打开浏览器
+    new OpenBrowserPlugin({
+      url: 'http://localhost:8000/webpack-dev-server/'
+    }),
+    // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
     })
   ],
 

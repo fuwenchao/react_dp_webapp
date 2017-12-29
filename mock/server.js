@@ -106,23 +106,23 @@ router.get('/api/detail/comment/:page/:id', function *(next) {
 
 // 订单列表
 const orderList = require('./orderlist/orderList.js')
-router.get('/api/orderlist/:username', function *(next) {
+router.get('/api/orderlist/:username',  (ctx, next) => {
     console.log('订单列表')
 
-    const params = this.params
+    const params = ctx.params
     const username = params.username
     console.log('用户名：' + username)
 
-    this.body = orderList
+    ctx.body = orderList
 })
 
 // 提交评论
-router.post('/api/submitComment', function *(next) {
+router.post('/api/submitComment', (ctx, next) =>  {
     console.log('提交评论')
 
     // 获取参数
 
-    this.body = {
+    ctx.body = {
         errno: 0,
         msg: 'ok'
     }

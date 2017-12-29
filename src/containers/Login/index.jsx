@@ -2,9 +2,9 @@ import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { withRouter } from 'react-router-dom'
+//import { withRouter } from 'react-router-dom'
 
-import * as userInfoActionsFromOtherFile from '../../actions/userInfo.action' 
+import * as userInfoActionsFromOtherFile from '../../actions/userInfo.action'
 
 import Header from '../../components/Header'
 import LoginComponent from '../../components/Login'
@@ -54,18 +54,20 @@ class Login extends React.Component {
         userinfo.username = username
         actions.update(userinfo)
 
-        const params = this.props.params
-        const router = params.router
+        const match = this.props.match
+        console.log('match----'+match)
+        const router = match.params.router
+        console.log('router----'+router)
         if (router) {
             // 跳转到指定的页面
-            this.props.history.push(router)
+            this.props.history.push('/'+router)
         } else {
             // 跳转到用户主页
             this.goUserPage()
         }
     }
     goUserPage() {
-        this.props.history.push('/User')
+        this.props.history.push('/user')
     }
 }
 

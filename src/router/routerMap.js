@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+ //BrowserRouter as Router,
 import {
   BrowserRouter as Router,
   Route,
@@ -16,12 +17,21 @@ import Detail from '../containers/Detail';
 import City from '../containers/City';
 import NotFound from '../containers/404Page';
 
+import Header from '../components/Header';
+
+
 import localStore from '../until/localStore';
 import {CITYNAME} from '../config/localStore.config';
 
 import {connect} from 'react-redux';
 //import {updateUserInfo} from '../actions/userInfo.action';
 import * as userInfoActionsFromOtherFile from '../actions/userInfo.action'
+
+
+import createHistory from 'history/createBrowserHistory'
+const history = createHistory()
+
+
 
 class App extends Component{
   constructor(props, context){
@@ -55,16 +65,18 @@ class App extends Component{
     let Routes = (
       <Switch>
         <Route path='/' exact component={Home}/>
-        <Route path='/login(/:router)'  component={Login}/>
+        <Route path='/login/:router'  component={Login}/>
         <Route path='/user'  component={User}/>
         <Route path='/search'  component={Search}/>
         <Route path='/detail'  component={Detail}/>
         <Route path='/city'  component={City}/>
+        <Route path='/header'  component={Header}/>
         <Route component={NotFound}/>
       </Switch>
     );
+    var match = this.props.match;
     return (
-      <Router>
+      <Router history={ history }>
         <div>
           {/**
            * 这里可以公共的样式,比如 头部, 尾部, 等.
