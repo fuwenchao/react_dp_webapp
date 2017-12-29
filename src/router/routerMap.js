@@ -68,7 +68,7 @@ class App extends Component{
         <Route path='/login/:router'  component={Login}/>
         <Route path='/user'  component={User}/>
         <Route path='/search'  component={Search}/>
-        <Route path='/detail'  component={Detail}/>
+        <Route path='/detail/:id'  component={Detail}/>
         <Route path='/city'  component={City}/>
         <Route path='/header'  component={Header}/>
         <Route component={NotFound}/>
