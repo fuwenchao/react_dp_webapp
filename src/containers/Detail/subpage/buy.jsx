@@ -16,6 +16,9 @@ class Buy extends React.Component {
             isStore: false
         }
     }
+    goBack(route) {
+        this.props.handleBack(route)
+    }
     render() {
         return (
             <BuyAndStore isStore={this.state.isStore} buyHandle={this.buyHandle.bind(this)} storeHandle={this.storeHandle.bind(this)}/>
@@ -46,7 +49,8 @@ class Buy extends React.Component {
         const userinfo = this.props.userinfo
         if (!userinfo.username) {
             // 跳转到登录页面的时候，要传入目标router，以便登录完了可以自己跳转回来
-            this.props.history.push('/login/' + encodeURIComponent('detail/' + id))
+            //this.props.history.push('/login/' + encodeURIComponent('detail/' + id))
+            this.goBack('/login/' + encodeURIComponent('/detail/' + id))
             return false
         }
         return true

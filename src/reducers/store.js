@@ -9,8 +9,10 @@ export default function store(state = initialState , action){
 		case actionTypes.STORE_UPDATE:
 			return action.data
 		case actionTypes.STORE_ADD:
-			state.unshift(action.data)
-			return state
+			return [
+			...state,
+			action.data
+			];
 		case actionTypes.STORE_RM:
 			return state.filter(item=> {
 				if (item.id != action.data.id){

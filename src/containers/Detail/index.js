@@ -11,6 +11,10 @@ class Detail extends React.Component {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
+    handleBack(routePath){
+      //this.props.history.goBack();
+      this.props.history.push(routePath);
+    }
     render() {
         // 获取商户ID
         const match = this.props.match
@@ -20,7 +24,7 @@ class Detail extends React.Component {
             <div>
                 <Header title="商户详情" type="share"/>
                 <p>info</p>
-                <Buy id={id}/>
+                <Buy id={id} handleBack={this.handleBack.bind(this)}/>
                 <p>comment</p>
             </div>
         )
