@@ -79,15 +79,15 @@ router.get('/api/search/:page/:city/:category', function *(next) {
 
 // 详情页 - 商户信息
 const detailInfo = require('./detail/info.js')
-router.get('/api/detail/info/:id', function *(next) {
+router.get('/api/detail/info/:id', (ctx, next) => {
     console.log('详情页 - 商户信息')
 
-    const params = this.params
+    const params = ctx.params
     const id = params.id
 
     console.log('商户id: ' + id)
 
-    this.body = detailInfo
+    ctx.body = detailInfo
 })
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js')
