@@ -25,7 +25,7 @@ class Detail extends React.Component {
                 <Header title="商户详情" type="share"/>
                 <Info id={id}/>
                 <Buy id={id} handleBack={this.handleBack.bind(this)}/>
-                <p>comment</p>
+                <Comment id={id}/>
             </div>
         )
     }

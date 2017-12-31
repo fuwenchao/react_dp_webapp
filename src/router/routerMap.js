@@ -67,7 +67,7 @@ class App extends Component{
         <Route path='/' exact component={Home}/>
         <Route path='/login/:router'  component={Login}/>
         <Route path='/user'  component={User}/>
-        <Route path='/search'  component={Search}/>
+        <Route path='/search/:category/:keyword'  component={Search}/>
         <Route path='/detail/:id'  component={Detail}/>
         <Route path='/city'  component={City}/>
         <Route path='/header'  component={Header}/>

@@ -32,16 +32,17 @@ class Buy extends React.Component {
     checkStoreState() {
         const id = this.props.id
         const store = this.props.store
-
-        store.forEach(item => {
-            if (item.id === id) {
-                // 已经被收藏
-                this.setState({
-                    isStore: true
-                })
-                return false
-            }
-        })
+        if(!JSON.stringify(store) == '{}') {
+            store.forEach(item => {
+                if (item.id === id) {
+                    // 已经被收藏
+                    this.setState({
+                        isStore: true
+                    })
+                    return false
+                }
+            })
+        }
     }
     // 检查登录状态
     loginCheck() {
@@ -66,7 +67,8 @@ class Buy extends React.Component {
         // 此过程为模拟购买，因此可省去复杂的购买过程
 
         // 跳转到用户主页
-        this.props.history.push('/user')
+        //this.props.history.push('/user')
+        this.goBack('/user')
     }
     // 收藏事件
     storeHandle() {

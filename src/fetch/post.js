@@ -15,7 +15,7 @@ function obj2params(obj){
 	return result;
 }
 
-export function post(url,parasObj){
+export function post(url,paramsObj){
 	var result = fetch(url,{
 		mothod:'POST',
 		credentials:'include',

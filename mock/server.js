@@ -43,11 +43,11 @@ router.get('/api/homelist/:city/:page' , (ctx, next) => {
 
 // 搜索结果页 - 搜索结果 - 三个参数
 var searchListData = require('./search/list.js')
-router.get('/api/search/:page/:city/:category/:keyword', function *(next) {
+router.get('/api/search/:page/:city/:category/:keyword', (ctx, next) => {
     console.log('搜索结果页 - 搜索结果')
 
     // 参数
-    const params = this.params
+    const params = ctx.params
     const paramsPage = params.page
     const paramsCity = params.city
     const paramsCategory = params.category
@@ -58,14 +58,14 @@ router.get('/api/search/:page/:city/:category/:keyword', function *(next) {
     console.log('当前类别：' + paramsCategory)
     console.log('关键字：' + paramsKeyword)
 
-    this.body = searchListData
+    ctx.body = searchListData
 })
 // 搜索结果页 - 搜索结果 - 两个参数
-router.get('/api/search/:page/:city/:category', function *(next) {
+router.get('/api/search/:page/:city/:category', (ctx, next) => {
     console.log('搜索结果页 - 搜索结果')
 
     // 参数
-    const params = this.params
+    const params = ctx.params
     const paramsPage = params.page
     const paramsCity = params.city
     const paramsCategory = params.category
@@ -74,7 +74,7 @@ router.get('/api/search/:page/:city/:category', function *(next) {
     console.log('当前城市：' + paramsCity)
     console.log('当前类别：' + paramsCategory)
 
-    this.body = searchListData
+    ctx.body = searchListData
 })
 
 // 详情页 - 商户信息
@@ -91,17 +91,17 @@ router.get('/api/detail/info/:id', (ctx, next) => {
 })
 // 详情页 - 用户评论
 const detailComment = require('./detail/comment.js')
-router.get('/api/detail/comment/:page/:id', function *(next) {
+router.get('/api/detail/comment/:page/:id', (ctx, next) =>  {
     console.log('详情页 - 用户点评')
 
-    const params = this.params
+    const params = ctx.params
     const page = params.page
     const id = params.id
 
     console.log('商户id: ' + id)
     console.log('当前页数: ' + page)
 
-    this.body = detailComment
+    ctx.body = detailComment
 })
 
 // 订单列表
