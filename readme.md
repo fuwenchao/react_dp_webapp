@@ -54,3 +54,10 @@ npm install less less-loader --save-dev
 
 cnpm install font-awesome --save-dev
 cnpm install autoprefixer-loader --save-dev
+
+
+
+
+
+*2018年1月1日 17:39:40
+修复提交评价bug
