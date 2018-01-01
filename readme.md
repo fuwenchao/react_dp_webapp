@@ -3,6 +3,7 @@
 ## 参照慕课网教程
 
 * 开发时间
+
 2017年12月31日 22:25:00
 
 
@@ -12,10 +13,12 @@
 
 
 安装generetor
+
 $ npm install -g generator-react-webpack
 
 
 生成骨架
+
 yo react-webpack fortest
 
 查看结构
@@ -59,5 +62,5 @@ cnpm install autoprefixer-loader --save-dev
 
 
 
-*2018年1月1日 17:39:40
+* 2018年1月1日 17:39:40
 修复提交评价bug
